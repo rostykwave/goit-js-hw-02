@@ -1,27 +1,44 @@
+const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
+const isLoginValid = function (login) {
+  // твій код
+    // console.log(login.length);
+    let result = true;
+    if (login.length < 4 || login.length > 16) {
+        console.log('Помилка! Логін повинен бути від 4 до 16 символів');
+        result = false;
+    }
+    return result;
+    // console.log(login);
+};
 
-//отримана змінна додається до total
+const isLoginUnique = function (allLogins, login) {
+  // твій код
+    console.table(allLogins);
+    console.log(login);
+    for (const allLogin of allLogins) {
+        if (login === allLogin) {
+            console.log('Такий логін уже використовується!');
+            break;
+        }
+        return login;
+        // console.log(login);
+    }
+};
 
-//alert
-//перевірка на число alert
-// Number.isNaN()
+const addLogin = function (allLogins, login) {
+  // твій код
+    isLoginValid(login);
+    console.log(isLoginValid(login));
+    isLoginUnique(allLogins, login);
+    console.log(login);
 
+};
 
-
-///Цикл з рандомізацією
-// const minSalary = 500;
-// const maxSalary = 5000;
-// const employees = 17;
-// let totalSalary = 0;
-
-// for (let i = 1; i <= 10; i += 1){
-//     const salary = Math.round(
-//         Math.random() * (maxSalary - minSalary) + minSalary
-//     );
-
-//     console.log(`ЗП робітника номер ${i} - ${salary}`);
-
-//     totalSalary += salary;
-// }
-
-// console.log('totalSalary: ', totalSalary);
+/*
+ * Виклич функції для перевірки працездатності твоєї реалізації.
+ */
+console.log(addLogin(logins, 'Ajax')); // 'Логін успішно доданий!'
+console.log(addLogin(logins, 'robotGoogles')); // 'Такий логін вже використовується!'
+console.log(addLogin(logins, 'Zod')); // 'Помилка! Логін повинен бути від 4 до 16 символів'
+console.log(addLogin(logins, 'jqueryisextremelyfast')); // 'Помилка! Логін повинен бути від 4 до 16 символів'
